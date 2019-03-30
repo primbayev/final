@@ -5,7 +5,7 @@ class Place < ApplicationRecord
   has_one_attached :main_photo
   has_many_attached :pictures
 
-  validates :main_photo, attached: true,
+  validates :main_photo,
             content_type: ['image/png', 'image/jpg', 'image/jpeg']
 
   validates :pictures, content_type: ['image/png', 'image/jpg', 'image/jpeg']
