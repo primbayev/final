@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_30_113955) do
+ActiveRecord::Schema.define(version: 2019_03_30_114400) do
+
+  create_table "active_admin_comments", force: :cascade do |t|
+    t.string "namespace"
+    t.text "body"
+    t.string "resource_type"
+    t.integer "resource_id"
+    t.string "author_type"
+    t.integer "author_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
+    t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
+    t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
+  end
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -51,16 +65,6 @@ ActiveRecord::Schema.define(version: 2019_03_30_113955) do
     t.datetime "updated_at", null: false
     t.index ["place_id"], name: "index_comments_on_place_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
-  end
-
-  create_table "images", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "place_id"
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["place_id"], name: "index_images_on_place_id"
-    t.index ["user_id"], name: "index_images_on_user_id"
   end
 
   create_table "places", force: :cascade do |t|
