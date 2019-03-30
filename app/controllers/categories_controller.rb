@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
   before_action :find_category, only: [:show]
 
   def index
-    @category = Category.all
+    @categories = Category.all
   end
 
   def new

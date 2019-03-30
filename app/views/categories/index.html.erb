@@ -1,0 +1,16 @@
+<div class="row mt-5">
+  <% @categories.each do |category| %>
+    <div class="col-3 border border-info rounded text-center pt-3">
+
+      <div>
+        <b><u><%= link_to "#{category.title}", category_path(category) %></u></b>
+      </div>
+
+      <div>
+        <%= category.description %>
+      </div>
+
+    </div>
+  <% end %>
+
+</div>

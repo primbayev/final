@@ -5,9 +5,17 @@
       &#x2630;
     </button>
 
-    <%= link_to 'Eatery', root_path, class: 'navbar-brand' %>
+    <%= link_to 'Places', root_path, class: 'navbar-brand' %>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="nav-item">
+          <%= link_to "Categories", categories_path %>
+        </li>
+        <li class="nav-item">
+
+        </li>
+      </ul>
 
       <div class="navbar-nav ml-auto">
         <% if user_signed_in? %>
