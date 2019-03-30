@@ -21,6 +21,10 @@
         <% if user_signed_in? %>
 
           <div class="nav-item">
+            <%= link_to 'New Place', new_place_path, class: "navbar-text btn btn-info mr-5 text-white" %>
+          </div>
+
+          <div class="nav-item">
             <span class="navbar-text">
               Hello,&nbsp;
             <span>

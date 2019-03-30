@@ -1,0 +1,17 @@
+<h2><%= @place.title %></h2>
+
+<p><b> <%= @place.category.title %> </b></p>
+
+<p><%= @place.description %></p>
+
+<div class="">
+  <%= link_to "Edit", edit_place_path(@place), class: 'btn btn-warning' %>
+
+  <%= link_to 'Delete', place_path(@place),
+    {
+      data: { confirm: 'Are you sure?' },
+      method: :delete,
+      class: 'btn btn-danger'
+    }
+  %>
+</div>

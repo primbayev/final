@@ -1,2 +1,13 @@
-<h1>Eateries#index</h1>
-<p>Find me in app/views/eateries/index.html.erb</p>
+<h1>Places</h1>
+
+<div class="row mt-5">
+  <% @places.each do |place| %>
+    <div class="col-3 border border-info rounded text-center pt-3">
+
+      <div>
+        <%= link_to "#{place.title}", place_path(place) %>
+      </div>
+
+    </div>
+  <% end %>
+</div>

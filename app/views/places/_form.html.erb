@@ -1,0 +1,33 @@
+<%= form_with model: @place, local: true do |f| %>
+
+  <% if @place && @place.errors.any? %>
+    <div class="errors">
+      Total errors: <%= @place.errors.count %>
+      <ul>
+        <% @place.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %> <br/>
+    <%= f.text_field :description, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :category %> <br/>
+    <%= f.select :category_id, Category.all.collect { |c| [c.title, c.id] } %>
+  </div>
+
+  <div class="mt-4">
+    <%= f.submit %>
+  </div>
+
+<% end %>
