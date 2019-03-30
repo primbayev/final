@@ -8,5 +8,7 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :images, dependent: :destroy
 
+  has_many_attached :pictures
+
   validates :name, presence: true, length: { maximum: 50 }
 end
