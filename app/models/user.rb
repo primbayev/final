@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   has_many :places, dependent: :destroy
   has_many :comments, dependent: :destroy
-
+  has_many :images, dependent: :destroy
 
   validates :name, presence: true, length: { maximum: 50 }
 end
