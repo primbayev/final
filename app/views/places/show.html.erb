@@ -1,8 +1,20 @@
-<h2><%= @place.title %></h2>
+<div class="row">
+  <div class="col-8">
+    <h2><%= @place.title %></h2>
 
-<p><b> <%= @place.category.title %> </b></p>
+    <p><b> <%= @place.category.title %> </b></p>
 
-<p><%= @place.description %></p>
+    <p><%= @place.description %></p>
+  </div>
+
+  <div class="col-4 mt-4">
+    <% if @place.main_photo.attached? %>
+      <%= image_tag @place.main_photo, size: 100 %>
+    <% end %>
+
+  </div>
+</div>
+
 
 <div class="">
   <% if current_user == @place.user %>
@@ -15,6 +27,16 @@
         class: 'btn btn-danger'
       }
     %>
+  <% end %>
+</div>
+
+<div class="row">
+  <% if @place.pictures.attached? %>
+    <% @place.pictures.each do |picture| %>
+      <div class="col-1 m-4">
+        <%= image_tag picture, size: 100 %>
+      </div>
+    <% end %>
   <% end %>
 </div>
 
