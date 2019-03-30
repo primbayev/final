@@ -6,9 +6,10 @@ class User < ApplicationRecord
 
   has_many :places, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_many :images, dependent: :destroy
 
   has_many_attached :pictures
+
+  # validates :pictures, content_type: ['image/png', 'image/jpg', 'image/jpeg']
 
   validates :name, presence: true, length: { maximum: 50 }
 end
