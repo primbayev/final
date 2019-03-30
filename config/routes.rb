@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  get 'eateries/index'
-  root 'eateries#index'
+  root 'places#index'
 
+  resources :places
 end
