@@ -17,3 +17,27 @@
     %>
   <% end %>
 </div>
+
+<h2>
+  <%= link_to 'Reviews', "#comment-section#{@place.id}",
+    {
+      id: 'comment-link',
+      data: { toggle: 'collapse' },
+      role: 'button',
+      aria: {
+        expanded: 'false',
+        controls: 'comment-section'
+      }
+    }
+  %>
+</h2>
+<div id="comment-section<%= @place.id %>" class="collapse mb-5">
+  <ol>
+    <%= render @place.comments.order('created_at desc') %>
+  </ol>
+
+  <% if user_signed_in? %>
+    <h3>Add review:</h3>
+    <%= render 'comments/form' %>
+  <% end %>
+</div>

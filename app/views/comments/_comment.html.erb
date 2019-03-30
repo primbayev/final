@@ -1,0 +1,16 @@
+<li>
+  <p>
+    On <%= comment.created_at.to_date %>, <strong><%= comment.user.name %></strong> said:
+  </p>
+  <p>
+    <%= comment.body %>
+  </p>
+
+  <p>
+    Quality of food: <strong> <%= comment.food_quality %> </strong><br>
+
+    Service quality: <strong> <%= comment.service_quality %></strong> <br>
+
+    Interior: <strong> <%= comment.interior %></strong>
+  </p>
+</li>

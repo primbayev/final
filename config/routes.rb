@@ -3,6 +3,9 @@ Rails.application.routes.draw do
 
   root 'places#index'
 
-  resources :places
+  resources :places do
+    resources :comments
+  end
+
   resources :categories
 end
