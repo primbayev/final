@@ -1,16 +1,30 @@
-<div class="row mt-5">
+<h1>Categories</h1>
+
+<%= link_to 'New Category', new_category_path, class: "btn btn-secondary mb-3" %>
+
+<table class="table table-striped">
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th colspan="2">Action</th>
+  </tr>
+
   <% @categories.each do |category| %>
-    <div class="col-3 border border-info rounded text-center pt-3">
-
-      <div>
-        <b><u><%= link_to "#{category.title}", category_path(category) %></u></b>
-      </div>
-
-      <div>
-        <%= category.description %>
-      </div>
-
-    </div>
+    <tr>
+      <td><b><%= category.title %></b></td>
+      <td><b><%= category.description %></b></td>
+      <td>
+        <%= link_to "Edit", edit_category_path(category), class: 'btn btn-warning' %>
+      </td>
+      <td>
+        <%= link_to 'Delete', category_path(category),
+          {
+            data: { confirm: 'Are you sure?' },
+            method: :delete,
+            class: 'btn btn-danger'
+          }
+        %>
+      </td>
+    </tr>
   <% end %>
-
-</div>
+</table>
