@@ -2,7 +2,11 @@ class PlacesController < ApplicationController
   before_action :find_place, only: [:show, :edit, :update, :destroy]
 
   def index
-    @places = Place.where(active: true).paginate(page: params[:page], per_page: 20)
+    if params[:category]
+      @places = Place.where(active: true, category_id: params[:category]).paginate(page: params[:page], per_page: 20)
+    else
+      @places = Place.where(active: true).paginate(page: params[:page], per_page: 20)
+    end
   end
 
   def new
