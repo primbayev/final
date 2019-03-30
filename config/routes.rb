@@ -7,6 +7,4 @@ Rails.application.routes.draw do
   resources :places do
     resources :comments
   end
-
-  resources :categories
 end
