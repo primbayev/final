@@ -1,0 +1,28 @@
+<%= form_with model: @category, local: true do |f| %>
+
+  <% if @category && @category.errors.any? %>
+    <div class="errors">
+      Total errors: <%= @category.errors.count %>
+      <ul>
+        <% @category.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %> <br/>
+    <%= f.text_field :description, class: 'form-control' %>
+  </div>
+
+  <div class="mt-4">
+    <%= f.submit %>
+  </div>
+
+<% end %>
