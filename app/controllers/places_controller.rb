@@ -41,9 +41,47 @@ class PlacesController < ApplicationController
   end
 
   def show
+    @overall = overall_calculate
+    @food_quality_average = food_quality_average_calculate
+    @service_quality_average = service_quality_average_calculate
+    @interior_average = interior_average_calculate
   end
 
   private
+
+  def overall_calculate
+    sum = food_quality_average_calculate +
+    service_quality_average_calculate + interior_average_calculate
+
+    sum / 3
+  end
+
+  def food_quality_average_calculate
+    sum = 0
+    @place.comments.each do |comment|
+      sum += comment.food_quality.to_f
+    end
+
+    sum / @place.comments.count if @place.comments.present?
+  end
+
+  def service_quality_average_calculate
+    sum = 0
+    @place.comments.each do |comment|
+      sum += comment.service_quality.to_f
+    end
+
+    sum / @place.comments.count if @place.comments.present?
+  end
+
+  def interior_average_calculate
+    sum = 0
+    @place.comments.each do |comment|
+      sum += comment.interior.to_f
+    end
+
+    sum / @place.comments.count if @place.comments.present?
+  end
 
   def find_place
     @place = Place.find(params[:id])

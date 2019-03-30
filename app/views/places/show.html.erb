@@ -18,6 +18,22 @@
   <% end %>
 </div>
 
+<hr>
+
+<h2>Ratings</h2>
+
+<p>Overall: <strong> <%= @overall %> </strong> </p>
+
+<p>
+  Quality of food: <strong> <%= @food_quality_average %> </strong><br>
+
+  Service quality: <strong> <%= @service_quality_average %> </strong> <br>
+
+  Interior: <strong> <%= @interior_average %> </strong>
+</p>
+
+<hr>
+
 <h2>
   <%= link_to 'Reviews', "#comment-section#{@place.id}",
     {
