@@ -26,6 +26,16 @@
     <%= f.select :category_id, Category.all.collect { |c| [c.title, c.id] } %>
   </div>
 
+  <div class="row">
+    <p class="col-6">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit ut eum cupiditate molestias accusantium, officiis, m dignissimos debitis!
+    </p>
+    <div class="col-4">
+      <%= f.check_box :terms  %>
+      <%= f.label 'I understand' %>
+    </div>
+  </div>
+
   <div class="mt-4">
     <%= f.submit %>
   </div>
