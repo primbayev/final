@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  place: one
+  body: MyText
+  food_quality: 1
+  service_quality: 1
+  interior: 1
+
+two:
+  user: two
+  place: two
+  body: MyText
+  food_quality: 1
+  service_quality: 1
+  interior: 1
