@@ -17,7 +17,7 @@ class PlacesController < ApplicationController
 
     if @place.save
       redirect_to places_path,
-      notice: 'You place is on moderation and will be added after approval by administrator'
+      notice: 'Your place is on moderation and will be added after approval by administrator'
     else
       render :new
     end
