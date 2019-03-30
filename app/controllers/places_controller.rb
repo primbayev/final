@@ -41,10 +41,12 @@ class PlacesController < ApplicationController
   end
 
   def show
-    @overall = overall_calculate
-    @food_quality_average = food_quality_average_calculate
-    @service_quality_average = service_quality_average_calculate
-    @interior_average = interior_average_calculate
+    if @place.comments.present?
+      @overall = overall_calculate
+      @food_quality_average = food_quality_average_calculate
+      @service_quality_average = service_quality_average_calculate
+      @interior_average = interior_average_calculate
+    end
   end
 
   private
@@ -53,7 +55,7 @@ class PlacesController < ApplicationController
     sum = food_quality_average_calculate +
     service_quality_average_calculate + interior_average_calculate
 
-    sum / 3
+    (sum / 3).round(1)
   end
 
   def food_quality_average_calculate
@@ -62,7 +64,7 @@ class PlacesController < ApplicationController
       sum += comment.food_quality.to_f
     end
 
-    sum / @place.comments.count if @place.comments.present?
+    (sum / @place.comments.count).round(1) if @place.comments.present?
   end
 
   def service_quality_average_calculate
@@ -71,7 +73,7 @@ class PlacesController < ApplicationController
       sum += comment.service_quality.to_f
     end
 
-    sum / @place.comments.count if @place.comments.present?
+    (sum / @place.comments.count).round(1) if @place.comments.present?
   end
 
   def interior_average_calculate
@@ -80,7 +82,7 @@ class PlacesController < ApplicationController
       sum += comment.interior.to_f
     end
 
-    sum / @place.comments.count if @place.comments.present?
+    (sum / @place.comments.count).round(1) if @place.comments.present?
   end
 
   def find_place

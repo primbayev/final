@@ -5,7 +5,18 @@
     <div class="col-3 border border-info rounded text-center pt-3">
 
       <div>
+        <% if place.main_photo.attached? %>
+          <%= image_tag place.main_photo.variant(resize: '150x150') %>
+        <% end %>
+      </div>
+
+      <div>
         <%= link_to "#{place.title}", place_path(place) %>
+      </div>
+
+      <div>
+        (<%= place.overall %>, <%= place.comments.count %> reviews) <br>
+        <%= place.pictures.count + 1 %> photos
       </div>
 
     </div>
