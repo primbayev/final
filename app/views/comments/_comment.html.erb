@@ -13,4 +13,17 @@
 
     Interior: <strong> <%= comment.interior %></strong>
   </p>
+
+  <% if current_user == comment.user %>
+    <div>
+      <%= link_to 'Delete', place_comment_path(comment.place, comment),
+        {
+          method: :delete,
+          data: {confirm: 'Are you sure' },
+          class: 'btn btn-danger'
+        }
+      %>
+    </div>
+  <% end %>
+
 </li>

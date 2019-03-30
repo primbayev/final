@@ -1,6 +1,4 @@
 <%= form_with url: [@place, @place.comments.build], scope: :comment, local: true do |f| %>
-
-
   <div class="fields">
     Text: <%= f.text_area :body, class: 'form-control' %>
   </div>
