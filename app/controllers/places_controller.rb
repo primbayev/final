@@ -2,7 +2,7 @@ class PlacesController < ApplicationController
   before_action :find_place, only: [:show, :edit, :update, :destroy]
 
   def index
-    @places = Place.all
+    @places = Place.where(active: true)
   end
 
   def new
@@ -16,7 +16,8 @@ class PlacesController < ApplicationController
     )
 
     if @place.save
-      redirect_to @place
+      redirect_to places_path,
+      notice: 'You place is on moderation and will be added after approval by administrator'
     else
       render :new
     end
