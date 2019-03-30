@@ -2,7 +2,7 @@ class PlacesController < ApplicationController
   before_action :find_place, only: [:show, :edit, :update, :destroy]
 
   def index
-    @places = Place.where(active: true)
+    @places = Place.where(active: true).paginate(page: params[:page], per_page: 20)
   end
 
   def new

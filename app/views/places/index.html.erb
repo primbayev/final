@@ -1,5 +1,12 @@
 <h1>Places</h1>
 
+<div class="apple_pagination">
+  <div class="page_info">
+    <%= page_entries_info @places %>
+  </div>
+  <%= will_paginate @places, :container => false %>
+</div>
+
 <div class="row mt-5">
   <% @places.each do |place| %>
     <div class="col-3 border border-info rounded text-center pt-3">
